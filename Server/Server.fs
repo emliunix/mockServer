@@ -1,13 +1,11 @@
 namespace MockServer
 
 open System
+open System.IO
 open Microsoft.AspNetCore.Http
 open Microsoft.AspNetCore.Http.Extensions
-open MockItem
-open System.IO
 open Microsoft.Extensions.Primitives
-open System
-open Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http2.HPack
+open MockItem
 
 module Server =
     let hello = "world"
@@ -31,7 +29,7 @@ module Server =
                 return Some item
         }
 
-    let ServerMockItem (context : HttpContext) =
+    let ServeMockItem (context : HttpContext) =
         let request = context.Request in
         let itemHash = BuildItemHash request.Path.Value (FromHttpQuery request.Query) in
             printfn "%s -> %s" (UriHelper.GetDisplayUrl request) (BitConverter.ToString itemHash) |> ignore;

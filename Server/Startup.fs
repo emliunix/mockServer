@@ -18,4 +18,4 @@ type Startup() =
         if env.IsDevelopment() then 
             app.UseDeveloperExceptionPage() |> ignore
 
-        app.Run(RequestDelegate(Server.ServerMockItem)) |> ignore
+        app.Run(RequestDelegate(Server.ServeMockItem)) |> ignore
