@@ -1,0 +1,5 @@
+{
+    "FSharp.fsacRuntime": "netcore",
+    "FSharp.enableBackgroundSymbolCache": true,
+    "FSharp.msbuildHost": ".net core"
+}
