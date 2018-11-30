@@ -16,7 +16,7 @@ let AsyncReadStream (stream: Stream) = async {
     let buffer = Array.create 1024 (byte 0) in
     use mem = new MemoryStream () in
     do! stream.CopyToAsync mem |> Async.AwaitTask
-    return mem.GetBuffer ()
+    return mem.ToArray ()
 }
 
 let QueryFromUri (uri: Uri) : Query = 
